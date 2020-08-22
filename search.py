@@ -15,4 +15,24 @@ class Search:
         openList = []  # priority queue
         closedList = {}  # set
 
-        heapq.heappush(openList, root)
+        heapq.heappush(openList, root)  # need to change!!! add to the heap by the lowest cost
+        foundGoal = False
+
+        while openList and not foundGoal:
+            currentNode = heapq.heappop(openList)
+            closedList.add(currentNode)
+
+            currentNode.get_successor()
+
+            for childNode in currentNode.childs:
+                if childNode.game_map.is_finished():
+                    print("Result found!")
+                    foundGoal = True
+                    self.path_trace(pathToSolution, childNode)
+                    break
+                if childNode not in openList and childNode not in closedList:
+                    # if (not self.existed_puzzle(childNode.puzzle, openList) and not self.existed_puzzle(
+                    # childNode.puzzle, closedList)): openList.append(childNode)
+                    heapq.heappush(openList, childNode)
+
+        return pathToSolution

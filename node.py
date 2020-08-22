@@ -4,11 +4,16 @@ from copy import deepcopy
 class Node(object):
     childs = []
     parent = None
+    cost = 1
+    explored = False
+    solved = False
 
-    def __init__(self, game_map, action):
+    def __init__(self, game_map):
+        # self.game_map = deepcopy(game_map)
         self.game_map = game_map
-        self.action = action
-        self.flag_y, self.flag_x = get_flag_position(game_map)
+        # if self.game_map.is_finished():
+        #     self.solved = True
+        self.explored = True
 
     def print_flag_pos(self):
         print(self.flag_y, self.flag_x)
@@ -48,8 +53,12 @@ class Node(object):
                 if parent_heading == DOWN and move == 'r':
                     continue
 
-            if self.game_map.apply_move(move) == self.game_map.SUCCESS:
+            copy_game_map = deepcopy(self.game_map)
+            if copy_game_map.apply_move(move) == self.game_map.SUCCESS:
                 # append new state
-                child = deepcopy(self)
+                child = Node(copy_game_map)
+                child.parent = self
+                child.explored = True
                 self.childs.append(child)
+
 
