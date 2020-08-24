@@ -69,7 +69,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/solver.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="PARAMETERS" value="&quot;testcases/t1_crossfire.txt&quot; &quot;outfile&quot;" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -109,25 +109,63 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1259" height="205" key="GridCell.Tab.0.bottom" timestamp="1598064493725">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598237751496">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="205" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1598064493725" />
-    <state width="1259" height="205" key="GridCell.Tab.0.center" timestamp="1598064493724">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1598237751496" />
+    <state width="1259" height="212" key="GridCell.Tab.0.bottom" timestamp="1598237450443">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="205" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1598064493724" />
-    <state width="1259" height="205" key="GridCell.Tab.0.left" timestamp="1598064493724">
+    <state width="1259" height="212" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1598237450443" />
+    <state width="1259" height="212" key="GridCell.Tab.0.center" timestamp="1598237450443">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="205" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1598064493724" />
-    <state width="1259" height="205" key="GridCell.Tab.0.right" timestamp="1598064493725">
+    <state width="1259" height="212" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1598237450443" />
+    <state width="1259" height="212" key="GridCell.Tab.0.left" timestamp="1598237450443">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="205" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1598064493725" />
+    <state width="1259" height="212" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1598237450443" />
+    <state width="1259" height="212" key="GridCell.Tab.0.right" timestamp="1598237450443">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="212" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1598237450443" />
+    <state width="1259" height="234" key="GridCell.Tab.1.bottom" timestamp="1598237388865">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="234" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1598237388865" />
+    <state width="1259" height="234" key="GridCell.Tab.1.center" timestamp="1598237388865">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="234" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1598237388865" />
+    <state width="1259" height="234" key="GridCell.Tab.1.left" timestamp="1598237388865">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="234" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1598237388865" />
+    <state width="1259" height="234" key="GridCell.Tab.1.right" timestamp="1598237388865">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="234" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1598237388865" />
     <state x="185" y="30" key="SettingsEditor" timestamp="1597879964370">
       <screen x="0" y="0" width="1365" height="768" />
     </state>
     <state x="185" y="30" key="SettingsEditor/0.0.1365.768@0.0.1365.768" timestamp="1597879964370" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/search.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

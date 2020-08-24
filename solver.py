@@ -2,6 +2,7 @@
 import sys
 from laser_tank import LaserTankMap
 from node import *
+from search import *
 
 """
 Template file for you to implement your solution to Assignment 1.
@@ -31,6 +32,7 @@ def write_output_file(filename, actions):
     f.write('\n')
     f.close()
 
+
 def main(arglist):
     input_file = arglist[0]
     output_file = arglist[1]
@@ -39,8 +41,20 @@ def main(arglist):
     game_map = LaserTankMap.process_input_file(input_file)
     actions = []
 
-    node = Node(game_map, actions)
-    node.get_successor('l')
+    # closedList = set()
+    # myTup = (tuple(map(tuple, game_map.grid_data))), game_map.player_x, game_map.player_y, game_map.player_heading
+    # anotherTup = (tuple(map(tuple, game_map.grid_data))), game_map.player_x + 1, game_map.player_y + 1, game_map.player_heading
+    #
+    # closedList.add(myTup)
+    # closedList.add(anotherTup)
+    #
+    # hi = (tuple(map(tuple, game_map.grid_data))), game_map.player_x - 1, game_map.player_y + 1, game_map.player_heading
+    #
+    # print(hi in closedList)
+
+    node = Node(game_map)
+
+    actions = uniform_cost_search(node)
 
     # Write the solution to the output file
     write_output_file(output_file, actions)

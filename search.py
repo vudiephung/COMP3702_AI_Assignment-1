@@ -1,5 +1,4 @@
-import node
-import heapq
+from priority_queue import *
 
 
 def get_flag_position(game_map):
@@ -9,30 +8,32 @@ def get_flag_position(game_map):
                 return y, x
 
 
+def get_tuples(node):
+    map_data = node.map_data
+    return (tuple(map(tuple, map_data.grid_data))), map_data.player_x, map_data.player_y, map_data.player_heading
+
+
+def uniform_cost_search(root):
+    openList = PriorityQueue()  # priority openList {(cost, grid_data)}
+    closedList = set()  # set
+
+    openList.insert(root, root.cost)
+
+    while not openList.is_empty():
+        currentNode = openList.remove()
+
+        closedList.add(get_tuples(currentNode))
+
+        suc = currentNode.get_successor()
+
+        for childNode in suc:
+            childNode.cost += currentNode.cost
+            if childNode.map_data.is_finished():
+                return childNode.actions
+
+            if get_tuples(childNode) not in closedList:
+                openList.insert(childNode, childNode.cost)
+
+
 class Search:
-    def uniform_cost_search(self, root):
-        pathToSolution = []
-        openList = []  # priority queue
-        closedList = {}  # set
-
-        heapq.heappush(openList, root)  # need to change!!! add to the heap by the lowest cost
-        foundGoal = False
-
-        while openList and not foundGoal:
-            currentNode = heapq.heappop(openList)
-            closedList.add(currentNode)
-
-            currentNode.get_successor()
-
-            for childNode in currentNode.childs:
-                if childNode.game_map.is_finished():
-                    print("Result found!")
-                    foundGoal = True
-                    self.path_trace(pathToSolution, childNode)
-                    break
-                if childNode not in openList and childNode not in closedList:
-                    # if (not self.existed_puzzle(childNode.puzzle, openList) and not self.existed_puzzle(
-                    # childNode.puzzle, closedList)): openList.append(childNode)
-                    heapq.heappush(openList, childNode)
-
-        return pathToSolution
+    pass
