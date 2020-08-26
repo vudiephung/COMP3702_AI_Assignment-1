@@ -67,6 +67,7 @@ class Node(object):
 
                 if move == 's':
                     grid_data_tuple = tuple(map(tuple, new_node.grid_data))
+                    new_node.cost = self.cost - 1
                 else:
                     grid_data_tuple = self.grid_data_tuple
 
