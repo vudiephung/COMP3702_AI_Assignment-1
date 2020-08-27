@@ -1,5 +1,6 @@
 from laser_tank import *
 from copy import copy
+from search import heuristic
 
 
 def copy_map_data(grid_data, x_size, y_size, player_x, player_y, player_heading, move):
@@ -18,25 +19,25 @@ class Node(object):
     isFinished = False
     grid_data_tuple = None
 
-    def __init__(self, x_size, y_size, grid_data, player_x, player_y, player_heading, cost):
+    def __init__(self, x_size, y_size, grid_data, player_x, player_y, player_heading,
+                 goals_position, cost):
         self.y_size = y_size
         self.x_size = x_size
         self.grid_data = grid_data
-        self.player_heading = player_heading
         self.player_y = player_y
         self.player_x = player_x
+        self.player_heading = player_heading
+        self.goals_position = goals_position
         self.cost = cost
+        self.heuristic = heuristic(self)
 
     def __eq__(self, other):
         equal_grid = self.grid_data_tuple == other.grid_data_tuple
-        equal_tank_position = self.player_x == other.player_x and \
-                              self.player_y == other.player_y
+        equal_tank_position = self.player_x == other.player_x and self.player_y == other.player_y
         equal_heading = self.player_heading == other.player_heading
         return equal_grid and equal_tank_position and equal_heading
 
     def __hash__(self):
-        # if self.grid_data_tuple is None: return hash(get_tuples(tuple(map(tuple, self.grid_data)), self.player_x,
-        # self.player_y, self.player_heading))
         return hash(get_tuples(self.grid_data_tuple, self.player_x, self.player_y, self.player_heading))
 
     def get_successor(self):
@@ -46,18 +47,13 @@ class Node(object):
         for move in ('f', 'l', 'r', 's'):
             if move == 's':
                 grid_data = [row[:] for row in self.grid_data]
-                # grid_data_tuple = tuple(map(tuple, grid_data))
             else:
                 grid_data = self.grid_data
-                # grid_data_tuple = self.grid_data_tuple if self.grid_data_tuple\
-                #     else tuple(map(tuple, grid_data))
 
             new_node = Node(self.x_size, self.y_size, grid_data,
-                            self.player_x, self.player_y, self.player_heading, self.cost + 1)
+                            self.player_x, self.player_y, self.player_heading, self.goals_position, self.cost + 1)
 
             if new_node.apply_move(move) == SUCCESS:
-                # append new state
-                # new_node.actions = self.actions[:]
                 new_node.actions = copy(self.actions)
                 new_node.actions.append(move)
                 if new_node.is_finished():
@@ -67,7 +63,6 @@ class Node(object):
 
                 if move == 's':
                     grid_data_tuple = tuple(map(tuple, new_node.grid_data))
-                    new_node.cost = self.cost - 1
                 else:
                     grid_data_tuple = self.grid_data_tuple
 

@@ -3,6 +3,7 @@ import sys
 from laser_tank import LaserTankMap
 from node import *
 from search import *
+from search import get_goal_position
 
 """
 Template file for you to implement your solution to Assignment 1.
@@ -39,10 +40,11 @@ def main(arglist):
 
     # Read the input testcase file
     game_map = LaserTankMap.process_input_file(input_file)
-    actions = []
+
+    goals_position = get_goal_position(game_map.x_size, game_map.y_size, game_map.grid_data)
 
     node = Node(game_map.x_size, game_map.y_size, game_map.grid_data, game_map.player_x,
-                game_map.player_y, game_map.player_heading, 0)
+                game_map.player_y, game_map.player_heading, goals_position, 1)
 
     actions = uniform_cost_search(node)
 
